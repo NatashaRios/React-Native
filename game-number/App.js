@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 import *as Font from 'expo-font';
 import AppLoading  from 'expo-app-loading';
 import Header from './components/Header';
@@ -51,10 +51,10 @@ export default function App() {
     content = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onRestart={configureNewGameHandler}/>
   }
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       <Header title='Guess a number' />
       {content}
-    </View>
+    </SafeAreaView> 
   );
 }
 
