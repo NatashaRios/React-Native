@@ -5,6 +5,7 @@ import Input from '../../components/Input';
 import NumberContainer from '../../components/NumberContainer';
 import BodyText from '../../components/BodyText';
 import TitleText from '../../components/TitleText';
+import MainButton from '../../components/MainButton';
 import Colors from '../../constants/colors';
 
 export default function StartGameScreen({ onStartGame }){
@@ -40,7 +41,9 @@ export default function StartGameScreen({ onStartGame }){
             <Card style={styles.summaryContainer}>
                 <Text>Your Selected</Text>
                <NumberContainer>{selectedNumber}</NumberContainer>
-               <Button title='START GAME' onPress={() => onStartGame(selectedNumber)}/>
+            <MainButton onPress={() => onStartGame(selectedNumber)}>
+                START GAME
+            </MainButton>
             </Card>
         );
     };
