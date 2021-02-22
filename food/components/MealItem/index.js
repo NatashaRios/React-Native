@@ -7,14 +7,19 @@ export default function MealItem({ title, duration, complexity, affordability, i
     <View style={styles.mealItem}>
       <TouchableOpacity onPress={onSelectMeal}>
         <View>
-          <View style={{...styles.mealRow, ...styles.mealHeader}}>
-            <ImageBackground source={{uri: image }} style={styles.bgImage}>
+          <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
+            <ImageBackground
+              source={{ uri: image }}
+              style={styles.bgImage}
+            >
               <View style={styles.titleContainer}>
-                <Text style={styles.title} numberOfLines={1}>{title}</Text>
+                <Text style={styles.title} numberOfLines={1}>
+                  {title}
+                </Text>
               </View>
             </ImageBackground>
           </View>
-          <View style={{...styles.mealRow, ...styles.mealDetail}}>
+          <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
             <DefaultText>{duration}m</DefaultText>
             <DefaultText>{complexity.toUpperCase()}</DefaultText>
             <DefaultText>{affordability.toUpperCase()}</DefaultText>
