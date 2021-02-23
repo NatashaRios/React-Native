@@ -1,0 +1,1 @@
+//Una lista de los productos seleccionados por el usuario
