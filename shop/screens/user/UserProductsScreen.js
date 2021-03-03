@@ -9,9 +9,13 @@ import HeaderButton from '../../components/UI/HeaderButton';
 import Colors from '../../constants/Colors';
 import * as productsActions from '../../store/actions/products';
 
-const UserProductsScreen = props => {
+const UserProductsScreen = ({ navigation }) => {
   const userProducts = useSelector(state => state.products.userProducts)
   const dispatch = useDispatch();
+
+  const editProductHandler = (id) => {
+    navigation.navigate('EditProduct', { productId: id });
+  };
 
   return(
     <FlatList 
@@ -23,14 +27,14 @@ const UserProductsScreen = props => {
           title={itemData.item.title}
           price={itemData.item.price}
           onSelect={() => {
-
+            editProductHandler(itemData.item.id);
           }}
         >
            <Button
               color={Colors.primary}
               title='Edit'
               onPress={() => {
-                
+                editProductHandler(itemData.item.id);
               }}
             />
             <Button
@@ -60,6 +64,17 @@ UserProductsScreen.navigationOptions = navData => {
         />
       </HeaderButtons>
     ),
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item 
+          title='Add' 
+          iconName={ Platform.OS == 'android' ? 'md-create' : 'ios-create' } 
+          onPress={() => {
+            navData.navigation.navigate('EditProduct');
+          }}
+        />
+      </HeaderButtons>
+    )
   }
 };
 
