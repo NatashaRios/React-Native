@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, Button, TouchableOpacity, TouchableNativ
 
 import Colors from '../../constants/Colors';
 
-const ProductItem = ({ onViewDetail, image, title, price, onAddCart }) => {
+const ProductItem = ({ onSelect, image, title, price, children }) => {
   let TouchableCmp = TouchableOpacity;
 
   if (Platform.OS == 'android' && Platform.Version >= 21) {
@@ -13,7 +13,7 @@ const ProductItem = ({ onViewDetail, image, title, price, onAddCart }) => {
   return(
     <View style={styles.product}>
     <View style={styles.touchable}>
-      <TouchableCmp onPress={onViewDetail} useForeground>
+      <TouchableCmp onPress={onSelect} useForeground>
         <View>
           <View style={styles.imageContainer}>
             <Image /* style={styles.image}  */ style={{width: '100%', height: '100%'}} source={{ uri: image }}  />
@@ -23,16 +23,7 @@ const ProductItem = ({ onViewDetail, image, title, price, onAddCart }) => {
             <Text style={styles.price}>${price.toFixed(2)}</Text>
           </View>
           <View style={styles.actions}>
-            <Button
-              color={Colors.primary}
-              title="View Details"
-              onPress={onViewDetail}
-            />
-            <Button
-              color={Colors.primary}
-              title="To Cart"
-              onPress={onAddCart}
-            />
+            {children}
           </View>
         </View>
       </TouchableCmp>
