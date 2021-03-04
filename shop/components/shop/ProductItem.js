@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Button, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 
+import Card from '../UI/Card';
 import Colors from '../../constants/Colors';
 
 const ProductItem = ({ onSelect, image, title, price, children }) => {
@@ -11,7 +12,7 @@ const ProductItem = ({ onSelect, image, title, price, children }) => {
   }
   
   return(
-    <View style={styles.product}>
+    <Card style={styles.product}>
     <View style={styles.touchable}>
       <TouchableCmp onPress={onSelect} useForeground>
         <View>
@@ -28,19 +29,12 @@ const ProductItem = ({ onSelect, image, title, price, children }) => {
         </View>
       </TouchableCmp>
     </View>
-  </View>
+  </Card>
   )
 };
 
 const styles = StyleSheet.create({
   product: {
-    shadowColor: 'black',
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
-    backgroundColor: 'white',
     height: 300,
     margin: 20
   },
@@ -50,7 +44,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: '100%',
-    height: '60%',
+    height: '59%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     overflow: 'hidden'
@@ -61,7 +55,7 @@ const styles = StyleSheet.create({
   },
   details: {
     alignItems: 'center',
-    height: '15%',
+    height: '16%',
     padding: 10
   },
   title: {
@@ -78,7 +72,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '23%',
+    height: '26%',
     paddingHorizontal: 20
   }
 });
